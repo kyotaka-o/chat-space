@@ -30,7 +30,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index設定|
+|name|string|null: false, index: true|
 |mail|string|null: false, 一意制約あり|
 
 ### Association
