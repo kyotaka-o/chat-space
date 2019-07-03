@@ -41,13 +41,13 @@
       %p.messages__message__text
       aaaaaaa
   .form
-    %form{:action => "#", :method => "get", :class => "form__box"}
+    %form{action:"#", method:"get", class:"form__box"}
       .form__box__input
-        %input{:name => "message", :class => "form__box__input__text", :type => "text", :placeholder => "type a message"}
-        %label.upload-label{for: "upload-icon", :class => "form__box__input__img-label"}
+        %input{name:"message", class:"form__box__input__text", type:"text", placeholder:"type a message"}
+        %label.upload-label{for: "upload-icon", class:"form__box__input__img-label"}
           %i.fa.fa-picture-o
-          %input{:name => "img", :class => "form__box__input__img", :id => "upload-icon", :type => "file"}
-      %input{:type => "submit", :class => "form__box__submit", :value => "Send"}
+          %input{name:"img", class:"form__box__input__img", id:"upload-icon", type:"file"}
+      %input{type:"submit", class:"form__box__submit", value:"Send"}
     
   
 
