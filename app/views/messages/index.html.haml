@@ -13,61 +13,8 @@
         = link_to "#" do
           %i.fa.fa-cog
   .side-menu__groups
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
-    .side-menu__groups__group
-      .side-menu__groups__group__name
-        aaaaaaaa
-      .side-menu__groups__group__massage
-        kyo  
+    = render partial: "groups"
+    
 .chatspace
   .main-header
     .current-group
@@ -75,84 +22,12 @@
         グループ
       %ul.current-group__meber-list
         Member:
-        %li
-          aaaaa
+        = render partial: "members"
     .edit
       =link_to "#", class: "edit__btn" do
         Edit
   .messages
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-      .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
-    .messages__message
-      .messages__message__info
-        %p.messages__message__info__user-name
-          name
-        %p.messages__message__info__date
-          2019/07/02(Tue) 16:25:30
-      %p.messages__message__text
-      aaaaaaa
+    = render partial: "messages"
   .form
     %form{:action => "#", :method => "get", :class => "form__box"}
       .form__box__input
