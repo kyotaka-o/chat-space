@@ -5,15 +5,20 @@ html, body {
 *{
   box-sizing: border-box;
 }
+.pop {
+  background-color: #38aef0;
+  color: #FFFFFF;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
 .side-menu {
-  box-sizing: border-box;
   float: left;
-
   width: 300px;
   min-height: 100%;
   color: #FFFFFF;
   font-weight: bold;
-
   &__user {
     background: #253141;
     font-size:16px;
@@ -42,11 +47,17 @@ html, body {
     }
   }
 }
-.user-name {
-  
-}
+
 .user-menu {
   display: flex;
+  // color: #FFFFFF; 
+
+}
+.user-menu .fa{
+
+  color: #FFFFFF; 
+  font-size:16px;
+
 }
 .chatspace {
   box-sizing: border-box;
@@ -78,6 +89,7 @@ html, body {
     font-size:12px;
     color: #999999;
     padding-top:15px;  
+    display: flex;
   }
 }
 .edit {
@@ -86,8 +98,10 @@ html, body {
   margin-top:28px;
   padding: 0 20px;
   border:solid 1px #38aef0;
-  color:#38aef0;
-
+  &__btn {
+    color:#38aef0;
+    text-decoration: none;
+  }
 }
 .messages {
   background: #fafafa;
@@ -122,17 +136,36 @@ html, body {
 } 
 .form {
   background: #dddddd;
-  font-weight: bold;
-  padding:0 40px;
+  padding:20px 40px;
   height: 90px;
-
-  // position: fixed;
-  // bottom: 0;
-}  
-
-.clear-fixed:after {
-  clear: both;
-  display: box;
-  content: "";
-
+  &__box{
+    display: flex;
+    &__input {
+      position: relative;
+      width: 100%;
+      margin-right:15px;
+      &__text {
+        height: 50px;
+        padding: 0 10px;
+        width: 100%;
+        border-style: none;  
+      }
+      &__img-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+      &__img {
+        display: none;
+      }
+    }
+    &__submit {
+      height: 50px;
+      background-color: #38aef0;
+      color: #ffffff;
+      width: 100px;
+      cursor: pointer;
+    }
+  } 
 }
