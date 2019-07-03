@@ -1,20 +1,8 @@
 .pop
   %p グループを作成しました
-%aside.side-menu
-  .side-menu__user
-    .user-name
-      %p
-        oboso
-    %ul.user-menu
-      %li.user-menu__edit
-        = link_to "#" do
-          %i.fa.fa-edit 
-      %li.user-menu__new-group
-        = link_to "#" do
-          %i.fa.fa-cog
-  .side-menu__groups
-    = render partial: "groups"
-    
+
+= render partial: "side_menu"
+
 .chatspace
   .main-header
     .current-group
@@ -22,12 +10,36 @@
         グループ
       %ul.current-group__meber-list
         Member:
-        = render partial: "members"
+        %li
+          aaaaa
     .edit
       =link_to "#", class: "edit__btn" do
-        Edit
+        %p Edit
   .messages
-    = render partial: "messages"
+    .messages__message
+      .messages__message__info
+        %p.messages__message__info__user-name
+          name
+        %p.messages__message__info__date
+          2019/07/02(Tue) 16:25:30
+      %p.messages__message__text
+      aaaaaaa
+    .messages__message
+      .messages__message__info
+        %p.messages__message__info__user-name
+          name
+        %p.messages__message__info__date
+          2019/07/02(Tue) 16:25:30
+      %p.messages__message__text
+      aaaaaaa
+    .messages__message
+      .messages__message__info
+        %p.messages__message__info__user-name
+          name
+        %p.messages__message__info__date
+          2019/07/02(Tue) 16:25:30
+      %p.messages__message__text
+      aaaaaaa
   .form
     %form{:action => "#", :method => "get", :class => "form__box"}
       .form__box__input

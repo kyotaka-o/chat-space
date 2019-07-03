@@ -1,0 +1,14 @@
+//変数
+$color-white: #FFFFFF;
+$color-sky: #38aef0;
+$color-gray: #434a54;
+$color-light-gray: #999999;
+$user-menu-height: 100px;
+$main-header-height: 100px;
+$form-height: 90px;
+
+//mixin
+@mixin fontsize_color($color,$size){
+  color: $color; 
+  font-size: $size;
+}
