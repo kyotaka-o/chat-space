@@ -1,0 +1,119 @@
+html, body {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pop {
+  background-color: $color-sky;
+  color: $color-white;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.chatspace {
+  box-sizing: border-box;
+  float: left;
+  width: calc(100vw - 300px);
+}
+
+.main-header {
+  font-weight: bold;
+  padding: 0 40px;
+  justify-content: space-between;
+  display: flex;
+  height: $main-header-height;
+  border-bottom: solid 1px #eeeeee;
+}
+
+.current-group {
+  &__name {
+    @include fontsize_color(#333333,20px);
+    padding-top:35px;
+  }
+  &__meber-list{
+    @include fontsize_color($color-light-gray,12px);
+    padding-top: 15px;  
+    display: flex;
+    & li {
+      padding: 0 5px;
+    }
+  }
+}
+
+.edit {
+  height: 40px;
+  line-height: 40px;
+  margin-top: 28px;
+  padding: 0 20px;
+  border: solid 1px $color-sky;
+  &__btn {
+    color: $color-sky;
+    text-decoration: none;
+  }
+}
+.messages {
+  background: #fafafa;
+  padding: 46px 40px;
+  height: calc(100vh - #{$form-height} - #{$main-header-height});
+  overflow: scroll;
+  &__message {
+    padding-bottom: 40px;
+    &__info {
+      margin-bottom: 10px;
+      &__user-name {
+        font-weight: bold; 
+        @include fontsize_color($color-gray,16px);
+        display: inline-block;
+        margin-right: 10px;
+      }
+      &__date {
+        @include fontsize_color($color-light-gray,12px);
+        display: inline-block;
+      }
+    }
+    &__text {
+      display: block;
+      @include fontsize_color($color-gray,14px);
+    }
+  }  
+} 
+.form {
+  background: #dddddd;
+  padding: 20px 40px;
+  height: $form-height;
+  &__box{
+    display: flex;
+    &__input {
+      position: relative;
+      width: 100%;
+      margin-right: 15px;
+      &__text {
+        height: 50px;
+        padding: 0 10px;
+        width: 100%;
+        border-style: none;  
+      }
+      &__img-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+      &__img {
+        display: none;
+      }
+    }
+    &__submit {
+      height: 50px;
+      background-color: $color-sky;
+      color: $color-white;
+      width: 100px;
+      cursor: pointer;
+    }
+  } 
+}

@@ -1,0 +1,41 @@
+.side-menu {
+  float: left;
+  width: 300px;
+  min-height: 100%;
+  color: $color-white;
+  font-weight: bold;
+  &__user {
+    background: #253141;
+    font-size: 16px;
+    padding: 0 20px;
+    justify-content: space-between;
+    display: flex;
+    height: $user-menu-height;
+    line-height: 100px;
+    & .user-menu {
+      display: flex;
+      & .fa {
+        @include fontsize_color($color-white,16px);
+      }
+    }
+  }
+  &__groups {
+    background: #2f3e51;
+    padding: 20px 20px 0px;
+    height: calc(100vh - #{$user-menu-height});
+    overflow: scroll;
+    &__group {
+      margin-bottom: 40px;
+      &__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &__massage {
+        font-size: 11px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+

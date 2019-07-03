@@ -1,1 +1,53 @@
-hello
+.pop
+  %p グループを作成しました
+
+= render partial: "side_menu"
+
+.chatspace
+  .main-header
+    .current-group
+      .current-group__name
+        グループ
+      %ul.current-group__meber-list
+        Member:
+        %li
+          aaaaa
+    .edit
+      =link_to "#", class: "edit__btn" do
+        %p Edit
+  .messages
+    .messages__message
+      .messages__message__info
+        %p.messages__message__info__user-name
+          name
+        %p.messages__message__info__date
+          2019/07/02(Tue) 16:25:30
+      %p.messages__message__text
+      aaaaaaa
+    .messages__message
+      .messages__message__info
+        %p.messages__message__info__user-name
+          name
+        %p.messages__message__info__date
+          2019/07/02(Tue) 16:25:30
+      %p.messages__message__text
+      aaaaaaa
+    .messages__message
+      .messages__message__info
+        %p.messages__message__info__user-name
+          name
+        %p.messages__message__info__date
+          2019/07/02(Tue) 16:25:30
+      %p.messages__message__text
+      aaaaaaa
+  .form
+    %form{action:"#", method:"get", class:"form__box"}
+      .form__box__input
+        %input{name:"message", class:"form__box__input__text", type:"text", placeholder:"type a message"}
+        %label.upload-label{for: "upload-icon", class:"form__box__input__img-label"}
+          %i.fa.fa-picture-o
+          %input{name:"img", class:"form__box__input__img", id:"upload-icon", type:"file"}
+      %input{type:"submit", class:"form__box__submit", value:"Send"}
+    
+  
+
