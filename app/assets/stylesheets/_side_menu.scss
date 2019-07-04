@@ -27,11 +27,11 @@
     &__group {
       margin-bottom: 40px;
       &__name {
-        font-size: 15px;
+        @include fontsize_color($color-white,15px);
         margin-bottom: 5px;
       }
       &__massage {
-        font-size: 11px;
+        @include fontsize_color($color-white,11px);
         margin-bottom: 40px;
       }
     }
