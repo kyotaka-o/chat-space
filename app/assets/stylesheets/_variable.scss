@@ -6,7 +6,7 @@ $color-light-gray: #999999;
 $user-menu-height: 100px;
 $main-header-height: 100px;
 $form-height: 90px;
-
+$alert_orange: #F35500;
 //mixin
 @mixin fontsize_color($color,$size){
   color: $color; 
