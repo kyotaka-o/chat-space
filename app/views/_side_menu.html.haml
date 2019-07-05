@@ -15,7 +15,7 @@
         = link_to group_messages_path(group) do
           .side-menu__groups__group__name
             = group.name
-          .side-menu__groups__group__massage
-            メッセージはまだありません。
+          .side-menu__groups__group__message
+            = group.show_last_message
 
         
