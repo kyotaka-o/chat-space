@@ -23,14 +23,22 @@
       aaaaaaa
 
 
+    -# = form_for @message do |f|
+    -# %form{action:"#", method:"get", class:"form__box"}
+    -#   .form__box__input
+    -#     %input{name:"message", class:"form__box__input__text", type:"text", placeholder:"type a message"}
+    -#     %label.upload-label{for: "upload-icon", class:"form__box__input__img-label"}
+    -#       %i.fa.fa-picture-o
+    -#       %input{name:"img", class:"form__box__input__img", id:"upload-icon", type:"file"}
+    -#   %input{type:"submit", class:"form__box__submit", value:"Send"}
  
-    %form{action:"#", method:"get", class:"form__box"}
+  .form
+    = form_for [@group, @message],html: {class: 'form__box'} do |f|
       .form__box__input
-        %input{name:"message", class:"form__box__input__text", type:"text", placeholder:"type a message"}
-        %label.upload-label{for: "upload-icon", class:"form__box__input__img-label"}
-          %i.fa.fa-picture-o
-          %input{name:"img", class:"form__box__input__img", id:"upload-icon", type:"file"}
-      %input{type:"submit", class:"form__box__submit", value:"Send"}
-    
-  
+        = f.text_field :body, class: 'form__box__input__text', placeholder: 'type a message'
+        = f.label :image, class: 'form__box__input__img-label' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'form__box__input__img'
+      = f.submit 'Send', class: 'form__box__submit'   
+
 
