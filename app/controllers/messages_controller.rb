@@ -9,7 +9,10 @@ class MessagesController < ApplicationController
   def create
     @message = @group.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      respond_to do |format|
+        format.html {       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' } 
+        format.json 
+      end
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください。'
@@ -19,6 +22,7 @@ class MessagesController < ApplicationController
   
   private
   def message_params
+    # binding.pry
     params.require(:message).permit(:body, :image).merge(user_id: current_user.id)
   end
 
