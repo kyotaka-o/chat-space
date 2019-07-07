@@ -11,8 +11,6 @@
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
   .chat-group-form__field.clearfix
-    / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-    /
     .chat-group-form__field--left
       %label.chat-group-form__label{:for=> "chat_group_チャットメンバーを追加"} チャットメンバーを追加
     .chat-group-form__field--right
@@ -28,7 +26,7 @@
       -# = f.collection_check_boxes :user_ids, User.all, :id, :name
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
       
-      -# .chat-group-users
+      .chat-group-users
       -#   .chat-group-user.clearfix#chat-group-user-22
       -#   <input name='chat_group[user_ids][]' type='hidden' value='22'>
       -#   <p class='chat-group-user__name'>seo_kyohei</p>
