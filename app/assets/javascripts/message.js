@@ -41,9 +41,9 @@ $(function(){
       messages.animate({scrollTop:messages[0].scrollHeight}, 300, 'swing');
       $('.form__box__input__text').val('')
     })
-    // .fail(function(){
-    //   alert('error');
-    // })
+    .fail(function(){
+      alert('error');
+    })
     .always(function(){
       $(".form__box__submit").removeAttr("disabled");
     });
