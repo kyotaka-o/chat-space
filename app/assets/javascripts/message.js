@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', function() { 
-  function buildHTML(message){
+  function buildHTML(message, now){
     var html = `<div class="messages__message">
                   <div class="messages__message__info">
                     <p class="messages__message__info__user-name">
                     ${message.name}
                     </p>
                     <p class="messages__message__info__date">
-                    ${message.created_at}
+                    ${now}
                     </p>
                   </div>`;
 
@@ -22,6 +22,15 @@ $(document).on('turbolinks:load', function() {
 
     return html;
   }
+  function orderDate(date, format) {
+ 
+    format = format.replace(/YYYY/, date.getFullYear());
+    format = format.replace(/MM/, ("0"+(date.getMonth() + 1)).slice(-2));
+    format = format.replace(/DD/,  ("0"+date.getDate()).slice(-2));
+    format = format.replace(/HH/, date.getHours());
+    format = format.replace(/TT/, date.getMinutes()); 
+    return format;
+  }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -36,11 +45,14 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data){
+      var now = new Date(data.created_at);
+      now = orderDate(now, 'YYYY/MM/DD HH:TT');
 　    var messages = $('.messages');
-      var html = buildHTML(data);
+      var html = buildHTML(data, now);
       messages.append(html);
       messages.animate({scrollTop:messages[0].scrollHeight}, 300, 'swing');
       $('.form__box__input__text').val('')
+      $('.form__box__input__img').val('')
     })
     .fail(function(){
       alert('error');
