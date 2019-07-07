@@ -44,5 +44,8 @@ $(function(){
     // .fail(function(){
     //   alert('error');
     // })
+    .always(function(){
+      $(".form__box__submit").removeAttr("disabled");
+    });
   })
 })
