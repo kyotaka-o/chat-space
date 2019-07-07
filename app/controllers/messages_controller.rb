@@ -22,7 +22,6 @@ class MessagesController < ApplicationController
   
   private
   def message_params
-    # binding.pry
     params.require(:message).permit(:body, :image).merge(user_id: current_user.id)
   end
 

@@ -24,11 +24,7 @@ $(function(){
   }
  $('#new_message').on('submit', function(e){
     e.preventDefault();
-    console.log(this);
     var formData = new FormData(this);
-    for (var [key, value] of formData.entries()) { 
-      console.log(key, value);
-    }
     var url = $(this).attr('action')
     $.ajax({
       url: url,
@@ -39,9 +35,10 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data)
+　    var messages = $('.messages');
       var html = buildHTML(data);
-      $('.messages').append(html)
+      messages.append(html);
+      messages.animate({scrollTop:messages[0].scrollHeight}, 300, 'swing');
       $('.form__box__input__text').val('')
     })
     // .fail(function(){
