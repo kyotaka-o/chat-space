@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   end
   def update
     if @group.update(group_params)
-      redirect_to "/groups/1/messages", notice: 'グループを編集しました'
+      redirect_to "/groups/#{@group.id}/messages", notice: 'グループを編集しました'
     else
       render :edit
     end

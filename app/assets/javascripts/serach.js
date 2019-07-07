@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() { 
   var search_list = $("#user-search-result");
-
+  const msg = "一致するユーザーが見つかりません";
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                 <p class="chat-group-user__name">${user.name}</p>
@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function() {
                 </div>`
     search_list.append(html);
   }
-
+  
   $("#serach-input").on("keyup", function() {
     var input = $("#serach-input").val();
     if (input === ""){
@@ -30,14 +30,26 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(users) {
       search_list.empty();
-      
+
       if (users.length !== 0) {
         users.forEach(function(user){
-          appendUser(user);
+          var flag = true;
+          $(".chat-group-users").find("input").each(function(){
+            id = $(this).attr("value");
+            if(id == user.id){
+              flag = false;
+            }
+          });
+          if(flag === true){
+            appendUser(user);
+          }
         });
+        if ($(".user-search-add").length === 0){
+          appendErrMsgToHTML(msg);          
+        }
       }
       else {
-        appendErrMsgToHTML("一致するユーザーが見つかりません");
+        appendErrMsgToHTML(msg);
       }
     })
     .fail(function() {
@@ -45,7 +57,7 @@ $(document).on('turbolinks:load', function() {
     })
   });
 
-  $(document).on("click", ".chat-group-user__btn--add", function () {
+  search_list.on("click", ".chat-group-user__btn--add", function () {
     var name =$(this).attr('data-user-name');
     var id =$(this).attr('data-user-id');
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
@@ -57,7 +69,7 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().remove();
   });
 
-  $(document).on("click", ".js-remove-btn", function () {
+  $(".chat-group-users").on("click", ".js-remove-btn", function () {
     $(this).parent().remove();
   });
 });
