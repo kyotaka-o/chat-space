@@ -43,11 +43,11 @@ $(document).on('turbolinks:load', function() {
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var now = new Date(data.created_at);
+    .done(function(message){
+      var now = new Date(message.created_at);
       now = orderDate(now, 'YYYY/MM/DD HH:TT');
 　    var messages = $('.messages');
-      var html = buildHTML(data, now);
+      var html = buildHTML(message, now);
       messages.append(html);
       messages.animate({scrollTop:messages[0].scrollHeight}, 300, 'swing');
       $('.form__box__input__text').val('')
