@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function() {
     format = format.replace(/TT/, ("0"+date.getMinutes()).slice(-2));
     return format;
   }
-  
+
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $(".messages .messages__message:last").attr('data-id')
@@ -61,7 +61,7 @@ $(document).on('turbolinks:load', function() {
       });
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };  
 
