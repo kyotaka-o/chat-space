@@ -2,7 +2,7 @@
 
 .chatspace
   .main-header
-    .current-group
+    .current-group{data:{group:{id: "#{@group.id}"}}}
       .current-group__name
         = @group.name
       %ul.current-group__meber-list
