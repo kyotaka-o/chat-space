@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() { 
   function buildHTML(message, now){
-    var html = `<div class="messages__message">
+    var html = `<div class="messages__message" data-id="${message.id}">
                   <div class="messages__message__info">
                     <p class="messages__message__info__user-name">
                     ${message.name}
@@ -31,6 +31,38 @@ $(document).on('turbolinks:load', function() {
     format = format.replace(/TT/, date.getMinutes()); 
     return format;
   }
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $(".messages .messages__message:last").attr('data-id')
+    $.ajax({
+      //ルーティングで設定した通りのURLを指定
+      url: '/groups/:group_id/api/messages',
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'get',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      //追加するHTMLの入れ物を作る
+      var insertHTML = '';
+      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+      messages.forEach(function( message ) {
+        var now = new Date(message.created_at);
+        now = orderDate(now, 'YYYY/MM/DD HH:TT');
+  　    var messages = $('.messages');
+        //メッセージが入ったHTMLを取得
+        insertHTML = buildHTML(message, now);
+        //メッセージを追加
+        messages.append(insertHTML);
+        messages.animate({scrollTop:messages[0].scrollHeight}, 300, 'swing');
+      });
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };  
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -60,4 +92,5 @@ $(document).on('turbolinks:load', function() {
       $(".form__box__submit").removeAttr("disabled");
     });
   })
+  setInterval(reloadMessages, 5000);
 })
