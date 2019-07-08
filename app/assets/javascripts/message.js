@@ -34,9 +34,10 @@ $(document).on('turbolinks:load', function() {
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $(".messages .messages__message:last").attr('data-id')
+    group_id = $(".current-group").attr('data-group-id')
     $.ajax({
       //ルーティングで設定した通りのURLを指定
-      url: '/groups/:group_id/api/messages',
+      url: `/groups/${group_id}/api/messages`,
       //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
@@ -44,6 +45,7 @@ $(document).on('turbolinks:load', function() {
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      console.log(messages);
       //追加するHTMLの入れ物を作る
       var insertHTML = '';
       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
@@ -57,6 +59,7 @@ $(document).on('turbolinks:load', function() {
         messages.append(insertHTML);
         messages.animate({scrollTop:messages[0].scrollHeight}, 300, 'swing');
       });
+      console.log('a');
     })
     .fail(function() {
       console.log('error');
